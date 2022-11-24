@@ -23,7 +23,7 @@ cat ~/.ssh/tunnel.pub
 To run the image you can execute the following command:
 
 ```bash
-docker run -d -e PUBLIC_KEY="$(cat ~/.ssh/tunnel.pub)" -p 2222:2222 --restart unless-stopped ethnexus/ssh-proxy
+docker run --name=ssh-proxy -d -e PUBLIC_KEY="$(cat ~/.ssh/tunnel.pub)" -p 2222:2222 --restart unless-stopped ethnexus/ssh-proxy
 ```
 
 ### Usage with `docker-compose`
