@@ -1,6 +1,6 @@
 # SSH Proxy
 
-_SSH Proxy is a ssh daemon you can start on your localhost. The daemon allows
+_SSH Proxy_ is a ssh daemon you can start on your localhost. The daemon allows
 tcp forwarding what makes it to a SSH Proxy.
 
 ## Getting stared
@@ -23,7 +23,14 @@ cat ~/.ssh/tunnel.pub
 To run the image you can execute the following command:
 
 ```bash
-docker run --name=ssh-proxy -d -e PUBLIC_KEY="$(cat ~/.ssh/tunnel.pub)" -p 2222:2222 --restart unless-stopped ethnexus/ssh-proxy
+docker run \
+  --name=ssh-proxy \
+  --hostname=ssh-proxy \
+  -d \
+  -e PUBLIC_KEY="$(cat ~/.ssh/tunnel.pub)" \
+  -p 2222:2222 \
+  --restart unless-stopped \
+  ethnexus/ssh-proxy
 ```
 
 ### Usage with `docker-compose`
